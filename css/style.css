@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+.playing-field {
+  background-image: url(../img/Background.png);
+  font-family: Roboto;
+  margin: 0 auto;
+  height: 1024px;
+  max-width: 1440px;
+}
