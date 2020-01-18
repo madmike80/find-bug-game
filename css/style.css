@@ -16,8 +16,12 @@
   /* padding: 0; */
   margin: 0;
   box-sizing: border-box;
-  /* border: 1px solid #000000; */
+  border: 1px solid #000000;
 }
+
+/* body {
+  max-height: 100vh;
+} */
 
 .playing-field {
   background-image: url(../img/Background.png);
@@ -25,18 +29,18 @@
   font-family: Roboto;
   font-style: normal;
   margin: 0 auto;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   max-width: 1440px;
 }
 
 .menu {
   display: grid;
   grid-template-columns: 100px repeat(4, 1fr) 70px;
-  grid-template-rows: 125px repeat(3, .2fr) repeat(3, 1fr);
+  grid-template-rows: 125px repeat(3, .2fr) repeat(3, .8fr);
   grid-template-areas:
     ". . . . . ."
-    ". title title title . ."
-    ". text text text . ."
+    ". title title title title title"
+    ". text text text text text"
     ". list . . . ."
     ". list . img img ."
     ". btn btn img img ."
@@ -47,7 +51,9 @@
 .menu__title {
   grid-area: title;
   font-weight: bold;
+  /* font-size: 3.4vw; */
   font-size: 3.563rem;
+  /* font-size: calc(1rem + 0.0285vw); */
   line-height: 1.175em;
   /* margin: 0;*/
   padding: 0 4px;
@@ -104,6 +110,7 @@
 
 .menu__image {
   grid-area: img;
+  padding: 0 2px;
   position: relative;
 }
 
@@ -112,7 +119,6 @@
   /* transform: translate(118px, 285px); */
   top: 205px;
   left: 120px;
-
 }
 
 .card-40deg {
@@ -120,7 +126,6 @@
   /* transform: translate(-43px, 291px); */
   top: 212px;
   left: 246px;
-
 }
 
 /* .menu__image {
