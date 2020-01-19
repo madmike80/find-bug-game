@@ -50,7 +50,8 @@ body {
 }
 
 .list-item {
-  padding: 7px 10px;
+  position: relative;
+  padding: 7px 45px;
   text-decoration: none;
   color: #ffffff;
   font-weight: bold;
@@ -60,8 +61,11 @@ body {
 
 .list-item_checked::before {
   content: url(../img//Rectangle.svg);
+  position: absolute;
   width: 18px;
   height: 18px;
+  top: 5px;
+  left: 0;
 }
 
 .btn-wrap {
