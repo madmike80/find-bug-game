@@ -11,7 +11,7 @@
 
   <body>
     <div class="playing-field">
-      <div class="menu">
+      <div class="menu hide">
         <div class="menu__title-wrap">
           <p class="menu__title">Выберите уровень сложности:</p>
           <p class="menu__description">
@@ -31,6 +31,16 @@
           </div>
         </div>
       </div>
+
+      <div class="game">
+        <div class="card">
+          <img class="card__side card__side_bug hide" src="./img/card_bug.png" alt="Face side">
+
+          <img class="card__side card__side_face" src="./img/game_over.png" alt="Face side">
+          <img class="card__side card__side_back" src="./img/back_of_a_card.png" alt="Back side">
+        </div>
+      </div>
+
     </div>
 
     <script src="./js/script.js"></script>
