@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-style: normal;
   color: #ffffff;
 }
@@ -23,7 +23,7 @@ body {
   justify-content: space-around;
   max-width: 1440px;
   min-width: 320px;
-  padding: 100px 5px;
+  padding: 96px 0 0 5px;
   margin-left: 5%;
 }
 
@@ -59,6 +59,10 @@ body {
   font-size: 50px;
   line-height: 59px;
   width: 300px;
+}
+
+.list-item:hover {
+  color: #ccc;
 }
 
 .list-item_checked::before {
@@ -141,10 +145,10 @@ body {
   transform: rotateY(180deg);
 }
 
-.card:hover {
-  transform: translateY(-15px) rotateZ(-5deg);
-  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
-}
+/*.card:hover {*/
+/*  transform: translateY(-15px) rotateZ(-5deg);*/
+/*  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);*/
+/*}*/
 
 .flip {
   transform: rotateY(180deg);
