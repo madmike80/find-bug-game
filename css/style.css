@@ -52,6 +52,7 @@ body {
 
 .list-item {
   position: relative;
+  cursor: pointer;
   padding: 7px 45px;
   text-decoration: none;
   color: #ffffff;
