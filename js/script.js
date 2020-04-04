@@ -13,9 +13,13 @@ let isSearchDifficulty = () => {
 
 let startGame = () => {
   let count = 0;
+  let classNameCard = "";
+  let classNameCardSide = "";
   const level = document.querySelector(".list-item_checked");
   const playingMenu = document.querySelector(".menu");
   const playingGame = document.querySelector(".game");
+  const card = document.querySelector(".card");
+  const cardSide = document.querySelectorAll(".card__side");
   switch (`${level.innerHTML}`) {
     case "Простой" :
       count = 3;
@@ -23,19 +27,30 @@ let startGame = () => {
 
     case "Средний" :
       count = 6;
+      classNameCard = "card_medium";
+      classNameCardSide = "card__side_medium";
       break;
 
     case "Сложный" :
       count = 10;
+      classNameCard = "card_hard";
+      classNameCardSide = "card__side_hard";
       break;
   }
 
   let changePlayingField = () => {
+    card.classList.add(`${classNameCard}`);
+
+    for (let el of cardSide) {
+      el.classList.add(`${classNameCardSide}`);
+    }
+
     playingMenu.classList.toggle("hide");
     playingGame.classList.toggle("hide");
+
     for (let i = 1; i < count; i++) {
-      const card = document.querySelector(".card").cloneNode(true);
-      playingGame.appendChild(card);
+      const cards = card.cloneNode(true);
+      playingGame.appendChild(cards);
     }
 
   };
