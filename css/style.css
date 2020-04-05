@@ -121,14 +121,20 @@ body {
   justify-content: space-around;
   /*align-content: space-around;*/
   /*align-items: center;*/
-  max-width: 1440px;
-  min-width: 320px;
+  /*max-width: 1440px;*/
+  /*min-width: 320px;*/
+  width: 40%;
   padding: 100px 5px;
+}
+
+.hard {
+  width: 66%;
 }
 
 .card {
   position: relative;
   margin-bottom: 30px;
+  margin-left: 30px;
   width: 218px;
   height: 341px;
   cursor: pointer;
@@ -137,13 +143,13 @@ body {
   transform-style: preserve-3d;
 }
 
-.card_medium {
-  flex-basis: 26%;
-}
+/*.card_medium {*/
+/*  flex-basis: 26%;*/
+/*}*/
 
-.card_hard {
-  flex-basis: 20%;
-}
+/*.card_hard {*/
+/*  flex-basis: 20%;*/
+/*}*/
 
 .card__side {
   position: absolute;
@@ -154,13 +160,13 @@ body {
   backface-visibility: hidden;
 }
 
-.card__side_medium {
-  left: 21%;
-}
+/*.card__side_medium {*/
+/*  left: 21%;*/
+/*}*/
 
-.card__side_hard {
-  left: 12%;
-}
+/*.card__side_hard {*/
+/*  left: 12%;*/
+/*}*/
 
 .card__side_face {
   transform: rotateY(180deg);
