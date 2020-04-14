@@ -32,13 +32,17 @@ let startGame = () => {
       break;
   }
 
+  let changeHideBlock = () => {
+    playingMenu.classList.toggle("hide");
+    playingGame.classList.toggle("hide");
+  };
+
   let changePlayingField = () => {
     if (count === 10) {
       playingGame.classList.add("hard")
     }
 
-    playingMenu.classList.toggle("hide");
-    playingGame.classList.toggle("hide");
+    changeHideBlock();
 
     for (let i = 1; i < count; i++) {
       const cards = card.cloneNode(true);
@@ -63,7 +67,7 @@ let startGame = () => {
     function clickEvent() {
       this.classList.add("flip");
       this.classList.remove("card_hover");
-
+      returnToMenu();
       for (let el of elem) {
         el.removeEventListener("click", clickEvent);
       }
@@ -76,9 +80,23 @@ let startGame = () => {
     }
   };
 
+  let returnToMenu = () => {
+    const delCards = document.querySelectorAll(".card");
+    const flippedCard = document.querySelector(".flip");
+    flippedCard.addEventListener("click", function() {
+      flippedCard.classList.remove("flip");
+      for (let i = 1; i < delCards.length; i++) {
+        delCards[i].remove();
+      }
+      level.classList.remove("list-item_checked");
+      changeHideBlock();
+    });
+  };
+
   changePlayingField();
   changeCardBug();
   isFlip('card');
+
 };
 
 isSearchDifficulty();
