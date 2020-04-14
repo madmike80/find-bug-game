@@ -88,6 +88,9 @@ let startGame = () => {
       for (let i = 1; i < delCards.length; i++) {
         delCards[i].remove();
       }
+      if (document.querySelector(".hard")) {
+        playingGame.classList.remove("hard")
+      }
       level.classList.remove("list-item_checked");
       changeHideBlock();
     });
