@@ -10,26 +10,38 @@
   </head>
 
   <body>
-    <section class="playing-field">
+    <div class="playing-field">
       <div class="menu">
-        <h1 class="menu__title">Выберите уровень сложности:</h1>
-        <p class="menu__text">
-          Выберите сложность и игра начнется.<span
-            >Чем выше уровень - тем больше будет выборка карт.</span
-          >
-        </p>
-        <ul class="menu__list">
-          <li class="menu__item"><a href="#">Простой</a></li>
-          <li class="menu__item"><a href="#">Средний</a></li>
-          <li class="menu__item"><a href="#">Сложный</a></li>
-        </ul>
-        <button class="menu__button">Начать игру</button>
-        <div class="menu__image">
-          <img src="./img/card_10deg.png" alt="Card" class="card-10deg" />
-          <img src="./img/card_40deg.png" alt="Card" class="card-40deg" />
+        <div class="menu__title-wrap">
+          <p class="menu__title">Выберите уровень сложности:</p>
+          <p class="menu__description">
+            <strong>Выберите сложность и игра начнется.</strong> Чем выше уровень - тем больше будет выборка карт.
+          </p>
+        </div>
+        <nav class="menu__list">
+          <a href="#" class="list-item">Простой</a>
+          <a href="#" class="list-item">Средний</a>
+          <a href="#" class="list-item">Сложный</a>
+        </nav>
+        <div class="btn-wrap">
+          <button class="button">Начать игру</button>
+          <div class="image">
+            <img class="card-10deg" src="./img/card_10deg.png" alt="card">
+            <img class="card-40deg" src="./img/card_40deg.png" alt="card">
+          </div>
         </div>
       </div>
-    </section>
+
+      <div class="game hide">
+        <div class="card card_hover">
+          <img class="card__side card__side_bug hide" src="./img/card_bug.png" alt="Face side">
+
+          <img class="card__side card__side_face" src="./img/game_over.png" alt="Face side">
+          <img class="card__side card__side_back" src="./img/back_of_a_card.png" alt="Back side">
+        </div>
+      </div>
+
+    </div>
 
     <script src="./js/script.js"></script>
   </body>
