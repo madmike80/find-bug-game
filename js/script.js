@@ -12,11 +12,16 @@ let isSearchDifficulty = () => {
 };
 
 let startGame = () => {
+
+  let cardSide = [
+    {id: 1, side: "bug", img: "./img/card_bug.png"},
+    {id: 2, side: "face", img: "./img/game_over.png"},
+    {id: 3, side: "back", img: "./img/back_of_a_card.png"}
+  ];
   let count = 0;
   const level = document.querySelector(".list-item_checked");
   const playingMenu = document.querySelector(".menu");
   const playingGame = document.querySelector(".game");
-  const card = document.querySelector(".card");
 
   switch (`${level.innerHTML}`) {
     case "Простой" :
@@ -32,77 +37,37 @@ let startGame = () => {
       break;
   }
 
+  if (count === 10) {
+    playingGame.classList.add("hard")
+  }
+
+  function createCard() {
+    let index = 1;
+    let randomCard = Math.floor(Math.random() * count);
+    for (let i = 0; i < count; i++) {
+      if (randomCard === i) {
+        index = 0;
+      } else {
+        index = 1;
+      }
+      const card = document.createElement("div");
+      card.classList.add("card", "card_hover");
+      card.insertAdjacentHTML("afterbegin", `
+      <img class="card__side card__side_face" src="${cardSide[index].img}" alt="Face side">
+      <img class="card__side card__side_back" src="${cardSide[2].img}" alt="Back side">
+      `)
+      playingGame.append(card);
+    }
+  }
+
   let changeHideBlock = () => {
     playingMenu.classList.toggle("hide");
     playingGame.classList.toggle("hide");
   };
 
-  let changePlayingField = () => {
-    if (count === 10) {
-      playingGame.classList.add("hard")
-    }
-
-    changeHideBlock();
-
-    for (let i = 1; i < count; i++) {
-      const cards = card.cloneNode(true);
-      playingGame.appendChild(cards);
-    }
-  };
-
-  let changeCardBug = () => {
-    const gameCards = document.querySelectorAll(".card");
-
-    let randomCard = Math.floor(Math.random() * count);
-
-    let cardFace = gameCards[randomCard].querySelector(".card__side_face");
-    cardFace.classList.toggle("hide");
-
-    let cardBug = gameCards[randomCard].querySelector(".card__side_bug");
-    cardBug.classList.toggle("hide");
-  };
-
-  let isFlip = (className) => {
-
-    function clickEvent() {
-      this.classList.add("flip");
-      this.classList.remove("card_hover");
-      returnToMenu();
-      for (let el of elem) {
-        el.removeEventListener("click", clickEvent);
-      }
-    }
-
-    const elem = document.querySelectorAll(`.${className}`);
-
-    for (let item of elem) {
-      item.addEventListener("click", clickEvent);
-    }
-  };
-
-  let returnToMenu = () => {
-    const delCards = document.querySelectorAll(".card");
-    const flippedCard = document.querySelector(".flip");
-    flippedCard.addEventListener("click", function() {
-      flippedCard.classList.remove("flip");
-      for (let i = 1; i < delCards.length; i++) {
-        delCards[i].remove();
-      }
-      if (document.querySelector(".hard")) {
-        playingGame.classList.remove("hard")
-      }
-      level.classList.remove("list-item_checked");
-      changeHideBlock();
-    });
-  };
-
-  changePlayingField();
-  changeCardBug();
-  isFlip('card');
-
-};
+  createCard();
+  changeHideBlock();
+}
 
 isSearchDifficulty();
 document.querySelector("button").addEventListener("click", startGame);
-
-
