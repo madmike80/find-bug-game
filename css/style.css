@@ -150,9 +150,9 @@ body {
   transform: rotateY(180deg);
 }
 
-.card__side_bug {
-  transform: rotateY(180deg);
-}
+/*.card__side_bug {*/
+/*  transform: rotateY(180deg);*/
+/*}*/
 
 .card_hover:hover {
   transform: translateY(-15px) rotateZ(-5deg);

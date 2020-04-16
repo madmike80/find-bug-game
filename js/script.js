@@ -1,4 +1,4 @@
-let isSearchDifficulty = () => {
+let isChoiceDifficulty = () => {
   const menu = document.querySelectorAll(".list-item");
 
   for (let item of menu) {
@@ -14,9 +14,9 @@ let isSearchDifficulty = () => {
 let startGame = () => {
 
   let cardSide = [
-    {id: 1, side: "bug", img: "./img/card_bug.png"},
-    {id: 2, side: "face", img: "./img/game_over.png"},
-    {id: 3, side: "back", img: "./img/back_of_a_card.png"}
+    {side: "bug", img: "./img/card_bug.png"},
+    {side: "face", img: "./img/game_over.png"},
+    {side: "back", img: "./img/back_of_a_card.png"}
   ];
   let count = 0;
   const level = document.querySelector(".list-item_checked");
@@ -42,7 +42,7 @@ let startGame = () => {
   }
 
   function createCard() {
-    let index = 1;
+    let index;
     let randomCard = Math.floor(Math.random() * count);
     for (let i = 0; i < count; i++) {
       if (randomCard === i) {
@@ -53,7 +53,7 @@ let startGame = () => {
       const card = document.createElement("div");
       card.classList.add("card", "card_hover");
       card.insertAdjacentHTML("afterbegin", `
-      <img class="card__side card__side_face" src="${cardSide[index].img}" alt="Face side">
+      <img class="card__side card__side_face" data-set="${cardSide[index].side}" src="${cardSide[index].img}" alt="Face side">
       <img class="card__side card__side_back" src="${cardSide[2].img}" alt="Back side">
       `)
       playingGame.append(card);
@@ -65,9 +65,45 @@ let startGame = () => {
     playingGame.classList.toggle("hide");
   };
 
+  let isFlip = () => {
+    const cards = document.querySelectorAll(".card");
+
+    function listener() {
+      this.classList.add("flip");
+      this.classList.remove("card_hover");
+      returnToMenu();
+      for (let elem of cards) {
+        elem.removeEventListener("click", listener);
+      }
+    }
+
+    for (let item of cards) {
+      item.addEventListener("click", listener);
+    }
+  }
+
+  let returnToMenu = () => {
+    let delCards = document.querySelectorAll(".card");
+    let flipCard = document.querySelector(".flip");
+
+    function removeCards() {
+      for (let delCard of delCards) {
+        delCard.remove();
+      }
+      document.querySelector(".hard") && playingGame.classList.remove("hard");
+      level.classList.remove("list-item_checked");
+      changeHideBlock();
+      flipCard.removeEventListener("click", removeCards);
+    }
+
+    flipCard.addEventListener("click", removeCards);
+
+  };
+
   createCard();
   changeHideBlock();
+  isFlip();
 }
 
-isSearchDifficulty();
+isChoiceDifficulty();
 document.querySelector("button").addEventListener("click", startGame);
