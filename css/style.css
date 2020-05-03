@@ -5,14 +5,17 @@
 }
 
 body {
+  background: url(../img/Background.png) no-repeat center;
+  background-size: cover;
   font-family: Roboto, sans-serif;
   font-style: normal;
   color: #ffffff;
 }
 
 .playing-field {
-  background: url(../img/Background.png) no-repeat center;
-  background-size: cover;
+  margin: 0 auto;
+  max-width: 1440px;
+  min-width: 320px;
   padding-top: 20px;
   height: 100vh;
 }
@@ -47,7 +50,7 @@ body {
 .menu__list {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /*justify-content: space-around;*/
 }
 
 .list-item {
@@ -99,7 +102,7 @@ body {
 .image {
   padding: 10px;
   display: flex;
-  align-content: flex-end;
+  justify-content: flex-end;
   position: relative;
 
 }
@@ -111,6 +114,8 @@ body {
 }
 
 .card-40deg {
+  max-width: 100%;
+  height: auto;
   z-index: 1;
 }
 
@@ -119,40 +124,44 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  width: 40%;
-  padding: 100px 5px;
+  max-width: 768px;
+  height: 100vh;
+  padding: 85px 5px;
 }
 
 .hard {
-  width: 66%;
+  max-width: 1300px;
 }
 
 .card {
   position: relative;
-  margin-bottom: 30px;
-  margin-left: 30px;
-  width: 218px;
-  height: 341px;
+  margin-right: 10px;
+  max-width: 218px;
+  width: calc((100% / 3) - (2.5rem / 3));
+  max-height: 341px;
   cursor: pointer;
   transition: 1s;
   perspective: 1000px;
   transform-style: preserve-3d;
 }
 
+.game.hard .card {
+  width: calc((100% / 5) - (5.5rem / 5));
+}
+
 .card__side {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  max-height: 341px;
+  height: auto;
   backface-visibility: hidden;
 }
 
 .card__side_face {
   transform: rotateY(180deg);
 }
-
-/*.card__side_bug {*/
-/*  transform: rotateY(180deg);*/
-/*}*/
 
 .card_hover:hover {
   transform: translateY(-15px) rotateZ(-5deg);
@@ -163,8 +172,118 @@ body {
   transform: rotateY(180deg);
 }
 
-
-
 .hide {
   display: none;
+}
+
+
+@media screen and (max-width: 1200px) {
+
+}
+
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 992px) {
+  .menu__title {
+    font-size: 47px;
+    line-height: 57px;
+  }
+
+  .menu__description {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .list-item {
+    font-size: 43px;
+    line-height: 45px;
+  }
+
+  .image {
+    width: 70%;
+  }
+
+  .card-10deg {
+    right: 35%;
+    bottom: 30px;
+    width: 45%;
+  }
+
+  .card-40deg {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu__title {
+    font-size: 36px;
+  }
+
+  .list-item {
+    font-size: 34px;
+  }
+
+  .button {
+    width: 260px;
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .menu__title {
+    font-size: 28px;
+  }
+
+  .menu__description {
+    font-size: 14px;
+  }
+
+  .list-item {
+    font-size: 26px;
+  }
+
+  .button {
+    width: 240px;
+    height: 60px;
+    font-size: 28px;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .menu__title {
+    font-size: 18px;
+  }
+
+  .menu__description {
+    font-size: 12px;
+  }
+
+  .menu__list {
+    margin-bottom: 30px;
+  }
+
+  .list-item {
+    font-size: 18px;
+    line-height: 28px;
+    padding: 7px;
+  }
+
+  .button {
+    width: 136px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .card-10deg {
+    bottom: 23px;
+    width: 42%;
+  }
+
+  .card-40deg {
+    width: 63%;
+  }
+
 }

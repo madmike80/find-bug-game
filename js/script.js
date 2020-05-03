@@ -38,7 +38,7 @@ let startGame = () => {
   }
 
   if (count === 10) {
-    playingGame.classList.add("hard")
+    playingGame.classList.add("hard");
   }
 
   function createCard() {
@@ -53,7 +53,7 @@ let startGame = () => {
       const card = document.createElement("div");
       card.classList.add("card", "card_hover");
       card.insertAdjacentHTML("afterbegin", `
-      <img class="card__side card__side_face" data-set="${cardSide[index].side}" src="${cardSide[index].img}" alt="Face side">
+      <img class="card__side card__side_face" src="${cardSide[index].img}" alt="Face side">
       <img class="card__side card__side_back" src="${cardSide[2].img}" alt="Back side">
       `)
       playingGame.append(card);
