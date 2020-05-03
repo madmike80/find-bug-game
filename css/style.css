@@ -120,33 +120,33 @@ body {
 }
 
 .game {
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  max-width: 768px;
+  display: grid;
+  grid-template-columns: 218px 218px 218px;
+  grid-template-rows: 341px;
+  grid-gap: 24px;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
   height: 100vh;
-  padding: 85px 5px;
+}
+
+.medium {
+  grid-template-rows: 341px 341px;
 }
 
 .hard {
-  max-width: 1300px;
+  grid-template-columns: 218px 218px 218px 218px 218px;
+  grid-template-rows: 341px 341px;
 }
 
 .card {
   position: relative;
-  margin-right: 10px;
-  max-width: 218px;
-  width: calc((100% / 3) - (2.5rem / 3));
-  max-height: 341px;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
   transition: 1s;
   perspective: 1000px;
   transform-style: preserve-3d;
-}
-
-.game.hard .card {
-  width: calc((100% / 5) - (5.5rem / 5));
 }
 
 .card__side {
@@ -154,10 +154,41 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  max-height: 341px;
-  height: auto;
+  height: 100%;
   backface-visibility: hidden;
 }
+
+/*.game {*/
+/*  margin: 0 auto;*/
+/*  display: flex;*/
+/*  flex-wrap: wrap;*/
+/*  justify-content: space-around;*/
+/*  max-width: 768px;*/
+/*  height: 100vh;*/
+/*  padding: 85px 5px;*/
+/*}*/
+
+/*.card {*/
+/*  position: relative;*/
+/*  margin-right: 10px;*/
+/*  max-width: 218px;*/
+/*  width: calc((100% / 3) - (2.5rem / 3));*/
+/*  max-height: 341px;*/
+/*  cursor: pointer;*/
+/*  transition: 1s;*/
+/*  perspective: 1000px;*/
+/*  transform-style: preserve-3d;*/
+/*}*/
+
+/*.card__side {*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  width: 100%;*/
+/*  max-height: 341px;*/
+/*  height: auto;*/
+/*  backface-visibility: hidden;*/
+/*}*/
 
 .card__side_face {
   transform: rotateY(180deg);
@@ -177,113 +208,113 @@ body {
 }
 
 
-@media screen and (max-width: 1200px) {
+/*@media screen and (max-width: 1200px) {*/
 
-}
+/*}*/
 
-@media screen and (max-width: 1024px) {
+/*@media screen and (max-width: 1024px) {*/
 
-}
+/*}*/
 
-@media screen and (max-width: 992px) {
-  .menu__title {
-    font-size: 47px;
-    line-height: 57px;
-  }
+/*@media screen and (max-width: 992px) {*/
+/*  .menu__title {*/
+/*    font-size: 47px;*/
+/*    line-height: 57px;*/
+/*  }*/
 
-  .menu__description {
-    font-size: 16px;
-    line-height: 22px;
-  }
+/*  .menu__description {*/
+/*    font-size: 16px;*/
+/*    line-height: 22px;*/
+/*  }*/
 
-  .list-item {
-    font-size: 43px;
-    line-height: 45px;
-  }
+/*  .list-item {*/
+/*    font-size: 43px;*/
+/*    line-height: 45px;*/
+/*  }*/
 
-  .image {
-    width: 70%;
-  }
+/*  .image {*/
+/*    width: 70%;*/
+/*  }*/
 
-  .card-10deg {
-    right: 35%;
-    bottom: 30px;
-    width: 45%;
-  }
+/*  .card-10deg {*/
+/*    right: 35%;*/
+/*    bottom: 30px;*/
+/*    width: 45%;*/
+/*  }*/
 
-  .card-40deg {
-    width: 60%;
-  }
-}
+/*  .card-40deg {*/
+/*    width: 60%;*/
+/*  }*/
+/*}*/
 
-@media screen and (max-width: 768px) {
-  .menu__title {
-    font-size: 36px;
-  }
+/*@media screen and (max-width: 768px) {*/
+/*  .menu__title {*/
+/*    font-size: 36px;*/
+/*  }*/
 
-  .list-item {
-    font-size: 34px;
-  }
+/*  .list-item {*/
+/*    font-size: 34px;*/
+/*  }*/
 
-  .button {
-    width: 260px;
-    height: 70px;
-  }
-}
+/*  .button {*/
+/*    width: 260px;*/
+/*    height: 70px;*/
+/*  }*/
+/*}*/
 
-@media screen and (max-width: 576px) {
-  .menu__title {
-    font-size: 28px;
-  }
+/*@media screen and (max-width: 576px) {*/
+/*  .menu__title {*/
+/*    font-size: 28px;*/
+/*  }*/
 
-  .menu__description {
-    font-size: 14px;
-  }
+/*  .menu__description {*/
+/*    font-size: 14px;*/
+/*  }*/
 
-  .list-item {
-    font-size: 26px;
-  }
+/*  .list-item {*/
+/*    font-size: 26px;*/
+/*  }*/
 
-  .button {
-    width: 240px;
-    height: 60px;
-    font-size: 28px;
-  }
+/*  .button {*/
+/*    width: 240px;*/
+/*    height: 60px;*/
+/*    font-size: 28px;*/
+/*  }*/
 
-}
+/*}*/
 
-@media screen and (max-width: 480px) {
-  .menu__title {
-    font-size: 18px;
-  }
+/*@media screen and (max-width: 480px) {*/
+/*  .menu__title {*/
+/*    font-size: 18px;*/
+/*  }*/
 
-  .menu__description {
-    font-size: 12px;
-  }
+/*  .menu__description {*/
+/*    font-size: 12px;*/
+/*  }*/
 
-  .menu__list {
-    margin-bottom: 30px;
-  }
+/*  .menu__list {*/
+/*    margin-bottom: 30px;*/
+/*  }*/
 
-  .list-item {
-    font-size: 18px;
-    line-height: 28px;
-    padding: 7px;
-  }
+/*  .list-item {*/
+/*    font-size: 18px;*/
+/*    line-height: 28px;*/
+/*    padding: 7px;*/
+/*  }*/
 
-  .button {
-    width: 136px;
-    height: 40px;
-    font-size: 18px;
-  }
+/*  .button {*/
+/*    width: 136px;*/
+/*    height: 40px;*/
+/*    font-size: 18px;*/
+/*  }*/
 
-  .card-10deg {
-    bottom: 23px;
-    width: 42%;
-  }
+/*  .card-10deg {*/
+/*    bottom: 23px;*/
+/*    width: 42%;*/
+/*  }*/
 
-  .card-40deg {
-    width: 63%;
-  }
+/*  .card-40deg {*/
+/*    width: 63%;*/
+/*  }*/
 
-}
+/*}*/
