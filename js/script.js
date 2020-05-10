@@ -1,5 +1,3 @@
-"use strict"
-
 let isChoiceDifficulty = () => {
   const menu = document.querySelectorAll(".list-item");
 
@@ -14,14 +12,14 @@ let isChoiceDifficulty = () => {
 };
 
 
-const srcBug = "./img/card_bug.png";
 const playingMenu = document.querySelector(".menu");
 const playingGame = document.querySelector(".game");
-// const level = document.querySelector(".list-item_checked");
 
 
 function createCard(count) {
-  const cardHTML = '<img class="card__side card__side_face" src="./img/game_over.png" alt="Face side"><img class="card__side card__side_back" src="./img/back_of_a_card.png" alt="Back side">';
+
+  const cardHTML = '<div class="card__side card__side_face"></div>' +
+    '<div class="card__side card__side_back"></div>';
 
   for (let i = 0; i < count; i++) {
     const card = document.createElement("div");
@@ -38,7 +36,8 @@ let randomCard = count => {
   let random = Math.floor(Math.random() * count);
   for (let i = 0; i < count; i++) {
     if (random === i) {
-      cards[i].src = srcBug;
+      cards[i].classList.add("card__side_bug");
+      cards[i].classList.remove("card__side_face")
       break;
     }
   }
