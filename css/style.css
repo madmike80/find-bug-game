@@ -1,0 +1,392 @@
+* {
+  box-sizing: border-box;
+  /* border: 1px solid #000000; */
+  margin: 0;
+}
+
+body {
+  background: url(../img/Background.png) no-repeat center;
+  background-size: cover;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  color: #ffffff;
+}
+
+.playing-field {
+  margin: 0 auto;
+  max-width: 1440px;
+  min-width: 320px;
+  padding-top: 20px;
+  height: 100vh;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 1440px;
+  min-width: 320px;
+  padding: 96px 0 0 5px;
+  margin-left: 5%;
+}
+
+.menu__title-wrap {
+  margin-bottom: 80px;
+}
+
+.menu__title {
+  font-weight: bold;
+  font-size: 57px;
+  line-height: 67px;
+  padding: 0 5px;
+}
+
+.menu__description {
+  font-size: 19px;
+  line-height: 22px;
+  padding: 0 5px;
+}
+
+.menu__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-item {
+  position: relative;
+  cursor: pointer;
+  padding: 7px 45px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 59px;
+  width: 50%;
+}
+
+.list-item:hover {
+  color: #ccc;
+}
+
+.list-item_checked::before {
+  content: url(../img/Rectangle.png);
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 5px;
+  left: 0;
+}
+
+.btn-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.button {
+  width: 352px;
+  height: 95px;
+  border: none;
+  background-color: #D62B2E;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 37px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.image {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+
+}
+
+.card-10deg {
+  position: absolute;
+  right: 243px;
+  bottom: 40px;
+}
+
+.card-40deg {
+  max-width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+.game {
+  display: grid;
+  grid-template-columns: 218px 218px 218px;
+  grid-template-rows: 341px;
+  grid-gap: 24px;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.medium {
+  grid-template-rows: 341px 341px;
+}
+
+.hard {
+  grid-template-columns: 218px 218px 218px 218px 218px;
+  grid-template-rows: 341px 341px;
+}
+
+.card {
+  position: relative;
+  cursor: pointer;
+  transition: 1s;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.card__side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card__side_face {
+  background: url("../img/game_over.png") 0 0 /contain no-repeat;
+  transform: rotateY(180deg);
+}
+
+.card__side_bug {
+  background: url("../img/card_bug.png") 0 0 /contain no-repeat;
+  transform: rotateY(180deg);
+}
+
+.card__side_back {
+  background: url("../img/back_of_a_card.png") 0 0 /contain no-repeat;
+}
+
+.card_hover:hover {
+  transform: translateY(-15px) rotateZ(-5deg);
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.flip {
+  transform: rotateY(180deg);
+}
+
+.hide {
+  display: none;
+}
+
+
+@media screen and (max-width: 1200px) {
+
+  .game {
+    grid-template-columns: 160px 160px 160px;
+    grid-template-rows: 250px;
+  }
+
+  .medium {
+    grid-template-rows: 250px 250px;
+  }
+
+  .hard {
+    grid-template-columns: 160px 160px 160px 160px 160px;
+    grid-template-rows: 250px 250px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+
+  .playing-field {
+    padding-top: 0;
+  }
+
+  .menu {
+    padding: 30px 0 0 5px;
+  }
+
+  .image {
+    width: 55%;
+  }
+
+  .card-10deg {
+    right: 35%;
+    bottom: 30px;
+    width: 45%;
+  }
+
+  .card-40deg {
+    width: 60%;
+  }
+
+}
+
+@media screen and (max-width: 992px) {
+  .menu__title {
+    font-size: 47px;
+    line-height: 57px;
+  }
+
+  .menu__description {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .list-item {
+    font-size: 43px;
+    line-height: 45px;
+  }
+
+  .game {
+    grid-gap: 10px;
+    grid-template-columns: 115px 115px 115px;
+    grid-template-rows: 178px;
+  }
+
+  .medium {
+    grid-template-rows: 178px 178px;
+  }
+
+  .hard {
+    grid-template-columns: 115px 115px 115px 115px 115px;
+    grid-template-rows: 178px 178px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu__title {
+    font-size: 36px;
+  }
+
+  .list-item {
+    font-size: 34px;
+  }
+
+  .list-item_checked::before {
+    top: 9px;
+  }
+
+  .button {
+    width: 260px;
+    height: 70px;
+  }
+
+  .game {
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 156px;
+  }
+
+  .medium {
+    grid-template-rows: 156px 156px;
+  }
+
+  .hard {
+    grid-template-columns: 100px 100px 100px 100px 100px;
+    grid-template-rows: 156px 156px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .menu__title {
+    font-size: 28px;
+  }
+
+  .menu__description {
+    font-size: 14px;
+  }
+
+  .list-item {
+    font-size: 26px;
+  }
+
+  .button {
+    width: 240px;
+    height: 60px;
+    font-size: 28px;
+  }
+
+  .game {
+    grid-template-columns: 77px 77px 77px;
+    grid-template-rows: 120px;
+  }
+
+  .medium {
+    grid-template-rows: 120px 120px;
+  }
+
+  .hard {
+    grid-template-columns: 77px 77px 77px 77px 77px;
+    grid-template-rows: 120px 120px;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .menu__title {
+    font-size: 18px;
+  }
+
+  .menu__description {
+    font-size: 12px;
+  }
+
+  .menu__list {
+    margin-bottom: 30px;
+  }
+
+  .list-item {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .button {
+    width: 136px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .card-10deg {
+    bottom: 23px;
+    width: 42%;
+  }
+
+  .card-40deg {
+    width: 63%;
+  }
+
+  .game {
+    grid-template-columns: 51px 51px 51px;
+    grid-template-rows: 79px;
+  }
+
+  .medium {
+    grid-template-rows: 79px 79px;
+  }
+
+  .hard {
+    grid-template-columns: 51px 51px 51px 51px 51px;
+    grid-template-rows: 79px 79px;
+  }
+
+}
+
+@media screen and (max-width: 320px) {
+  .game {
+    grid-template-columns: 36px 36px 36px;
+    grid-template-rows: 56px;
+  }
+
+  .medium {
+    grid-template-rows: 56px 56px;
+  }
+
+  .hard {
+    grid-template-columns: 36px 36px 36px 36px 36px;
+    grid-template-rows: 56px 56px;
+  }
+}
